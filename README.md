@@ -7,5 +7,5 @@ This is an Android application intended to provide a convienient interface to th
 Application Screenshots
 -----------------------
 
-<img src="screenshot2.png" width=200 ><\img> <img src="screenshot1.png" width=200 ><\img>
+<img src="screenshot2.png" width=350 > <img src="screenshot1.png" width=350 >
 
