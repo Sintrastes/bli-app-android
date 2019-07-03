@@ -7,6 +7,4 @@ This is an Android application intended to provide a convienient interface to th
 Application Screenshots
 -----------------------
 
-![Main application window](screenshot2.png)
-
-![Config page](screenshot1.png)
+![Main application window](screenshot2.png) ![Config page](screenshot1.png)
