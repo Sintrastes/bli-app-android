@@ -6,6 +6,5 @@ This is an Android application intended to provide a convienient interface to th
 
 Application Screenshots
 -----------------------
-Main window                      |  Configuration page
-:-------------------------------:|:-------------------------------------:
-![](screenshot2.png | width=100) | ![](screenshot1.png | width=100)
+
+![](screenshot2.png | width=100) ![](screenshot1.png | width=100)
