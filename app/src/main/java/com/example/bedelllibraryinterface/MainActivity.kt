@@ -3,16 +3,20 @@ package com.example.bedelllibraryinterface
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.content.Intent
+import android.graphics.Color
 import android.os.AsyncTask
 import android.os.Looper
 import android.widget.Button
 import android.widget.Toast
 import android.speech.tts.TextToSpeech
 import android.support.design.widget.Snackbar
+import android.support.v4.content.ContextCompat
 import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.support.v7.widget.Toolbar
+import android.text.*
+import android.text.style.ForegroundColorSpan
 import kotlinx.android.synthetic.main.view_list.*
 import kotlinx.coroutines.Deferred
 import kotlinx.coroutines.async
@@ -24,6 +28,7 @@ import java.net.URLEncoder
 import kotlinx.coroutines.GlobalScope as GlobalScope1
 import android.view.Menu
 import android.view.MenuItem
+import com.example.bedelllibraryinterface.Requests
 
 
 class doAsync(val handler: () -> Unit) : AsyncTask<Void, Void, Void>() {
@@ -58,9 +63,42 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+
+        val context = getApplicationContext();
+
+        // Format text used in EditText so we can do syntax highlighting
+
+        val highlightColor = ContextCompat.getColor(context, R.color.highlightColor)
+
+        val prompt = SpannableString("?- ")
+        prompt.setSpan(ForegroundColorSpan(highlightColor), 0, 3, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+
         setContentView(R.layout.activity_main)
+        val mainTextField: EditText = findViewById(R.id.main_text_field)
         val my_toolbar: Toolbar = findViewById(R.id.my_toolbar)
         setSupportActionBar(my_toolbar)
+
+        mainTextField.setText(prompt)
+        // Disable autocorrect by default
+        mainTextField.setInputType(InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS)
+
+        // Request type of the current input
+        var requestType: Requests.Request? = null
+
+        // Handle text change events for our main text field.
+        mainTextField.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable) {}
+
+            override fun beforeTextChanged(s: CharSequence, start: Int,
+                                           count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence, start: Int,
+                                       before: Int, count: Int) {
+                // Update the request type when the text is changed.
+                requestType = Requests.typeOfRequest(s.toString())
+            }
+        })
 
         val dir  = applicationContext.filesDir.absolutePath
 
@@ -106,8 +144,8 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this@MainActivity, "There was an error for some reason: \n\n" + e.toString(), Toast.LENGTH_SHORT).show()
             }
             // Reset the textbox after querying
-            var textboxData =findViewById<EditText>(R.id.main_text_field).text
-            textboxData.delete(0,textboxData.toString().length)
+            mainTextField.setText(prompt)
+            mainTextField.setSelection(mainTextField.getText().length)
         }
 
         val btn_to_config = findViewById(R.id.button2) as Button

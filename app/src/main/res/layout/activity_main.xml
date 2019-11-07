@@ -28,6 +28,7 @@
             android:visibility="visible"
             android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toTopOf="@+id/button"
+            android:theme="@style/SwitchTheme"
             android:textColorHighlight="#FFFFFF"
             android:textColorLink="#FFFFFF" android:background="@color/colorPrimaryDark"
             android:layout_marginStart="8dp" app:layout_constraintStart_toStartOf="parent"
