@@ -8,8 +8,12 @@ import android.os.Looper
 import android.widget.Button
 import android.widget.Toast
 import android.speech.tts.TextToSpeech
+import android.support.design.widget.Snackbar
 import android.util.Log
+import android.view.View
 import android.widget.EditText
+import android.support.v7.widget.Toolbar
+import kotlinx.android.synthetic.main.view_list.*
 import kotlinx.coroutines.Deferred
 import kotlinx.coroutines.async
 import kotlinx.coroutines.runBlocking
@@ -18,6 +22,9 @@ import java.net.HttpURLConnection
 import java.net.URL
 import java.net.URLEncoder
 import kotlinx.coroutines.GlobalScope as GlobalScope1
+import android.view.Menu
+import android.view.MenuItem
+
 
 class doAsync(val handler: () -> Unit) : AsyncTask<Void, Void, Void>() {
     override fun doInBackground(vararg params: Void?): Void? {
@@ -28,12 +35,38 @@ class doAsync(val handler: () -> Unit) : AsyncTask<Void, Void, Void>() {
 
 class MainActivity : AppCompatActivity() {
 
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        menuInflater.inflate(R.menu.app_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        val id = item.getItemId()
+
+        if (id == R.id.about_action) startActivity(Intent(this@MainActivity, about::class.java))
+        if (id == R.id.server_config_action) startActivity(Intent(this@MainActivity, config::class.java))
+        if (id == R.id.settings_action) startActivity(Intent(this@MainActivity, settings::class.java))
+
+        return super.onOptionsItemSelected(item)
+    }
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_main)
+        val my_toolbar: Toolbar = findViewById(R.id.my_toolbar)
+        setSupportActionBar(my_toolbar)
+
         val dir  = applicationContext.filesDir.absolutePath
+
         // get reference to button
         val btn_click_me = findViewById(R.id.button) as Button
+
         // set on-click listener
         btn_click_me.setOnClickListener {
             // query button press
