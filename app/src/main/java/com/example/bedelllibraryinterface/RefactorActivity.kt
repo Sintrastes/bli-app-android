@@ -6,9 +6,8 @@ import android.os.Bundle
 import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
 
-class settings : AppCompatActivity() {
+class RefactorActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -22,16 +21,16 @@ class settings : AppCompatActivity() {
         // as you specify a parent activity in AndroidManifest.xml.
         val id = item.getItemId()
 
-        if (id == R.id.about_action) startActivity(Intent(this@settings, about::class.java))
-        if (id == R.id.server_config_action) startActivity(Intent(this@settings, config::class.java))
-        if (id == R.id.settings_action) startActivity(Intent(this@settings, settings::class.java))
+        if (id == R.id.about_action) startActivity(Intent(this@RefactorActivity, RefactorActivity::class.java))
+        if (id == R.id.server_config_action) startActivity(Intent(this@RefactorActivity, ConfigActivity::class.java))
+        if (id == R.id.settings_action) startActivity(Intent(this@RefactorActivity, SettingsActivity::class.java))
 
         return super.onOptionsItemSelected(item)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_settings)
+        setContentView(R.layout.activity_about)
 
         val my_toolbar: Toolbar = findViewById(R.id.my_toolbar)
         setSupportActionBar(my_toolbar)

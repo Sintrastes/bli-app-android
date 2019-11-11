@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
+            android:name=".MyApplication"
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
             android:label="Bedelibry Mobile"
@@ -14,16 +15,16 @@
             android:supportsRtl="true"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:usesCleartextTraffic="true">
-        <activity android:name=".about">
+        <activity android:name=".RefactorActivity">
         </activity>
-        <activity android:name=".settings">
+        <activity android:name=".SettingsActivity">
         </activity>
         <activity
                 android:name=".ScrollingActivity"
                 android:label="@string/title_activity_scrolling"
                 android:theme="@style/AppTheme.NoActionBar">
         </activity>
-        <activity android:name=".config">
+        <activity android:name=".ConfigActivity">
         </activity>
         <activity android:name=".MainActivity">
             <intent-filter>
