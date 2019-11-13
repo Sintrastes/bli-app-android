@@ -1,7 +1,6 @@
-package com.example.bedelllibraryinterface
+package org.bedelibry.mobile
 
 import android.app.Application
-import android.content.res.Configuration
 
 class MyApplication : Application() {
     // Called when the application is starting, before any other application objects have been created.

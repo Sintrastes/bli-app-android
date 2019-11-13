@@ -1,4 +1,4 @@
-package com.example.bedelllibraryinterface
+package org.bedelibry.mobile
 
 import android.util.Log
 import android.webkit.URLUtil
@@ -11,6 +11,10 @@ class AppConfig(dir: String) {
     private var username: String? = null
     private var password: String? = null
     private var fontSize: Int? = null
+    // Are we currently connected to the configured server?
+    private var connected = false
+    // Are assertions allowed on the given server?
+    private var assertionsAllowed = false
     private var configFile = File("$dir/config.txt")
 
     // Enum to represent the different fields that can be configured
@@ -44,6 +48,14 @@ class AppConfig(dir: String) {
                 && serverPort != null
                 && username != null
                 && password != null
+    }
+
+    fun areAssertionsAllowed(): Boolean {
+        return assertionsAllowed
+    }
+
+    fun connectedToServer(): Boolean {
+        return connected
     }
 
     fun getServerAddress(): String? {

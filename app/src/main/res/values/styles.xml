@@ -7,6 +7,12 @@
         <item name="colorPrimaryDark">#455057</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+    <style name="AlertDialogStyle" parent="Theme.AppCompat.Dialog.Alert">
+        <item name="android:colorAccent">#455057</item>
+        <item name="android:background">@color/backgroundColor</item>
+        <item name="android:textColor">@color/textColorDark</item>
+        <item name="android:textColorPrimary">#f3f3f3</item>
+    </style>
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>

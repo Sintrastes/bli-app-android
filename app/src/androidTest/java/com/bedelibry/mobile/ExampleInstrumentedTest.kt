@@ -1,4 +1,4 @@
-package com.example.bedelllibraryinterface
+package com.bedelibry.mobile
 
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4

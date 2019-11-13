@@ -1,4 +1,4 @@
-package com.example.bedelllibraryinterface
+package com.bedelibry.mobile
 
 import org.junit.Test
 

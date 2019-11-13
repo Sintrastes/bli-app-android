@@ -1,4 +1,4 @@
-package com.example.bedelllibraryinterface
+package org.bedelibry.mobile
 
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
@@ -21,7 +21,7 @@ class SettingsActivity : AppCompatActivity() {
         // as you specify a parent activity in AndroidManifest.xml.
         val id = item.getItemId()
 
-        if (id == R.id.about_action) startActivity(Intent(this@SettingsActivity, RefactorActivity::class.java))
+        if (id == R.id.about_action) startActivity(Intent(this@SettingsActivity, AboutActivity::class.java))
         if (id == R.id.server_config_action) startActivity(Intent(this@SettingsActivity, ConfigActivity::class.java))
         if (id == R.id.settings_action) startActivity(Intent(this@SettingsActivity, SettingsActivity::class.java))
 

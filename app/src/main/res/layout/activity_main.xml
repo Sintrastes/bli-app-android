@@ -6,7 +6,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/backgroundColor"
-        tools:context=".MainActivity" android:visibility="visible">
+        tools:context="org.bedelibry.mobile.MainActivity" android:visibility="visible">
     <android.support.v7.widget.Toolbar
             android:id="@+id/my_toolbar"
             android:layout_width="match_parent"
@@ -16,13 +16,14 @@
             app:theme="@style/ToolBarStyle"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
 
-    <EditText
+    <org.bedelibry.mobile.MainEditText
             android:layout_width="328dp"
             android:layout_height="387dp"
-            android:inputType="textMultiLine"
+            android:inputType="textNoSuggestions|textMultiLine"
             android:singleLine="false"
             android:gravity="start|top"
             android:maxLines="25"
+            android:lines="15"
             android:ems="6"
             android:id="@+id/main_text_field"
             android:textColor="@color/textColor"

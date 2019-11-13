@@ -1,4 +1,4 @@
-package com.example.bedelllibraryinterface
+package org.bedelibry.mobile
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -10,11 +10,6 @@ import android.widget.Button
 import android.widget.Toast
 import android.widget.EditText
 import android.widget.TextView
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.async
-import java.lang.Exception
-import java.net.HttpURLConnection
-import java.net.URL
 
 class ConfigActivity : AppCompatActivity() {
 
@@ -33,7 +28,7 @@ class ConfigActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val id = item.getItemId()
 
-        if (id == R.id.about_action) startActivity(Intent(this@ConfigActivity, RefactorActivity::class.java))
+        if (id == R.id.about_action) startActivity(Intent(this@ConfigActivity, AboutActivity::class.java))
         if (id == R.id.server_config_action) startActivity(Intent(this@ConfigActivity, ConfigActivity::class.java))
         if (id == R.id.settings_action) startActivity(Intent(this@ConfigActivity, SettingsActivity::class.java))
 

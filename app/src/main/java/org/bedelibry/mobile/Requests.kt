@@ -1,4 +1,4 @@
-package com.example.bedelllibraryinterface
+package org.bedelibry.mobile
 
 object Requests {
     // Algebraic data type to represent the type of request that the user has entered
@@ -42,6 +42,6 @@ object Requests {
             return Requests.Request.BliPrologAssertion
         }
 
-       return Request.BliPrologQuery
+       return Requests.Request.BliPrologQuery
     }
 }

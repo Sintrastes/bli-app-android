@@ -1,4 +1,4 @@
-package com.example.bedelllibraryinterface
+package org.bedelibry.mobile
 
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
@@ -7,7 +7,7 @@ import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
 
-class RefactorActivity : AppCompatActivity() {
+class AboutActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -21,9 +21,9 @@ class RefactorActivity : AppCompatActivity() {
         // as you specify a parent activity in AndroidManifest.xml.
         val id = item.getItemId()
 
-        if (id == R.id.about_action) startActivity(Intent(this@RefactorActivity, RefactorActivity::class.java))
-        if (id == R.id.server_config_action) startActivity(Intent(this@RefactorActivity, ConfigActivity::class.java))
-        if (id == R.id.settings_action) startActivity(Intent(this@RefactorActivity, SettingsActivity::class.java))
+        if (id == R.id.about_action) startActivity(Intent(this@AboutActivity, AboutActivity::class.java))
+        if (id == R.id.server_config_action) startActivity(Intent(this@AboutActivity, ConfigActivity::class.java))
+        if (id == R.id.settings_action) startActivity(Intent(this@AboutActivity, SettingsActivity::class.java))
 
         return super.onOptionsItemSelected(item)
     }
